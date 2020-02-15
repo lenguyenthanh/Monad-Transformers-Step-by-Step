@@ -1,0 +1,54 @@
+name:                MTStepByStep
+version:             0.1.0.0
+github:              "lenguyenthanh/MTStepByStep"
+license:             BSD3
+author:              "Thanh Le"
+maintainer:          "lenguyenthanh@hotmail.com"
+copyright:           "2020 Thanh Le"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/lenguyenthanh/MTStepByStep#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- containers >= 0.6.0.1 && < 0.7
+- mtl
+
+default-extensions:
+- LambdaCase
+- MonadFailDesugaring
+
+library:
+  source-dirs: src
+
+executables:
+  MTStepByStep-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - MTStepByStep
+
+tests:
+  MTStepByStep-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - MTStepByStep
